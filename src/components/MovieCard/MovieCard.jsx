@@ -2,21 +2,14 @@ import './MovieCard.scss';
 
 /* eslint-disable max-len */
 
-export const MovieCard = () => (
-  const { title, description, imgUrl, imdbUrl, imdbId} = movies;
+export const MovieCard = ({ movie }) => {
+  const { title, description, imgUrl, imdbUrl } = movie;
 
   return (
-  <>
-    {/* Put the card here */}
-
     <div className="card" data-cy="Movie">
       <div className="card-image">
         <figure className="image is-4by3">
-          <img
-            data-cy="MovieImage"
-            src="https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg"
-            alt="Film logo"
-          />
+          <img data-cy="MovieImage" src={imgUrl} alt="Film logo" />
         </figure>
       </div>
       <div className="card-content">
@@ -28,21 +21,17 @@ export const MovieCard = () => (
           </div>
           <div className="media-content">
             <p className="title is-8" data-cy="MovieTitle">
-              Inception
+              {title}
             </p>
           </div>
         </div>
         <div className="content">
-          <p data-cy="MovieDescription">
-            Follows the lives of eight very different couples in dealing with
-            their love lives in various loosely interrelated tales all set
-            during a frantic month before Christmas in London, England.
-          </p>
+          <p data-cy="MovieDescription">{description}</p>
           <a href="https://www.imdb.com/title/tt1375666" data-cy="MovieLink">
-            IMDB
+            {imdbUrl}
           </a>
         </div>
       </div>
     </div>
-  </>);
-);
+  );
+};
